@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / API keys
+.env
+.env.*
+
+# Private or sensitive data
+data/private/
+data/raw/
+data/processed/*.csv
+data/processed/*.xlsx
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Streamlit secrets
+.streamlit/secrets.toml
