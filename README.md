@@ -57,5 +57,6 @@ API keys should be stored in:
 
 ## 7. Current Status
 
+
 - Day 1: Project structure created
 - Day 2: Variable design table will be prepared
