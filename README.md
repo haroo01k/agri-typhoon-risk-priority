@@ -59,4 +59,24 @@ API keys should be stored in:
 
 
 - Day 1: Project structure created
-- Day 2: Variable design table will be prepared
+- Day 2: Visualization refactor, schema validation, safer temp file handling, logging, and tests added
+- Local Streamlit app runs with sample data and supports CSV upload
+
+## 8. How to Run
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Start the Streamlit app:
+   ```bash
+   streamlit run app.py
+   ```
+3. Upload a farm-level CSV or use the built-in sample data at `data/sample/example_farms.csv`.
+
+## 9. Tests
+
+Run the automated test suite with:
+```bash
+pytest -q
+```
