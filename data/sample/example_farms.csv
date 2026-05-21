@@ -1,0 +1,2 @@
+farm_id,latitude,longitude,farm_area_ha,protected_area_m2,crop_type,crop_area_share,max_wind_ms,mean_wind_ms,cum_precip_24h,cum_precip_72h,max_hourly_precip,central_pressure,typhoon_category,distance_to_coast_km,is_lowland,elevation_m,slope_deg,soil_type,past_damage_count,past_loss_estimate,insurance_covered,facility_type,facility_structure_score,drainage_exists,obs_source,timestamp,imputed_flag
+FARM001,35.12,127.45,1.2,200,tomato,0.8,28.5,12.3,120,250,40,980,typhoon,12.5,False,45,3,loam,1,5000,True,plastic_house,0.6,True,model,2025-09-05T12:00:00Z,False
