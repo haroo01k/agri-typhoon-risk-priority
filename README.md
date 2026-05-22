@@ -65,106 +65,34 @@ API keys should be stored in:
 
 ## 8. How to Run
 
-1. Install dependencies:
+1. Create and activate a Python virtual environment (recommended):
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # WSL / macOS
+   # .venv\Scripts\activate  # Windows PowerShell
+   ```
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-2. Start the Streamlit app:
+3. Start the Streamlit app:
    ```bash
-   streamlit run app.py
+   python -m streamlit run app.py
    ```
-3. Upload a farm-level CSV or use the built-in sample data at `data/sample/example_farms.csv`.
+4. Upload a farm-level CSV or use the built-in sample data at `data/sample/example_farms.csv`.
 
-## 9. Tests
+## 9. Deployment
 
-Run the automated test suite with:
-```bash
-pytest -q
-```
+This repository is designed as a source-built Streamlit prototype.
 
-# Typhoon Agricultural Damage Priority Engine
+- Install dependencies using `requirements.txt`.
+- Run the app locally with `python -m streamlit run app.py`.
+- For WSL or environments where automatic browser launch fails, use:
+  - `http://localhost:8501`
+  - `http://localhost:8502`
+- Keep private farm data and API keys outside the repository.
 
-## 1. Project Overview
-
-This repository contains a prototype decision-support system for prioritizing post-typhoon agricultural field inspections.
-
-It uses regional typhoon hazard indicators and farm-level vulnerability/exposure features to highlight farms that should be checked first after a storm.
-
-## 2. What This Is
-
-- A prototype for post-typhoon agricultural damage prioritization.
-- A decision-support tool, not a confirmed damage assessment model.
-- Designed for early-stage field survey planning and prioritization.
-
-## 3. What This Is Not
-
-- Not a substitute for on-site damage verification.
-- Not an official insurance loss estimator.
-- Not a final classification of actual crop loss.
-
-## 4. How It Works
-
-1. Load farm-level `CSV` data or use the included sample file.
-2. Apply simple hazard, vulnerability, and exposure scoring.
-3. Combine component scores into a normalized risk ranking.
-4. Display top-priority farms, risk distribution, and map views.
-5. Export the ranked results for field inspection planning.
-
-## 5. Input Data
-
-The system expects a farm-level CSV with at least the following essential columns:
-
-- `farm_id`
-- `latitude`
-- `longitude`
-- `farm_area_ha`
-- `max_wind_ms`
-- `cum_precip_72h`
-- `facility_structure_score`
-- `distance_to_coast_km`
-- `is_lowland`
-
-Additional columns improve the model and reporting, but the core workflow can run with the essential fields.
-
-Sample data is available at:
-
-- `data/sample/example_farms.csv`
-
-## 6. Project Scope
-
-This project emphasizes transparency and reproducibility.
-The goal is to create a verifiable prototype that supports early-stage decisions after typhoon events.
-
-## 7. Current Status
-
-- Day 1: Project structure created
-- Day 2: Visualization refactor, schema validation, safer temp file handling, logging, and tests added
-- Day 3: UI guidance, prototype disclaimer, and documentation aligned to decision-support use case
-
-## 8. How to Run
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Start the Streamlit app (WSL-friendly). The development environment may automatically open a terminal on port 8502; if so use the 8502 URL below.
-   - Default (8501):
-     ```bash
-     python -m streamlit run app.py
-     ```
-   - Explicit 8502 (if your environment or terminal uses port 8502):
-     ```bash
-     python -m streamlit run app.py --server.port 8502
-     ```
-   - Quick helper script (Linux/WSL):
-     ```bash
-     ./run_streamlit.sh
-     ```
-3. If the browser does not open automatically, paste one of these into your browser:
-   - `http://localhost:8501` (or `http://127.0.0.1:8501`)
-   - `http://localhost:8502` (or `http://127.0.0.1:8502`) if you used port 8502
-
-## 9. Notes
+## 10. Notes
 
 - This tool is intended for prototype analysis and prioritization support.
 - Always verify results through on-site inspection before taking operational action.
