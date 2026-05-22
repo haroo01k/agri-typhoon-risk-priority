@@ -36,12 +36,26 @@ st.markdown(
     "이 프로젝트는 태풍 발생 시 지역별 강풍·강수 위험도와 농가별 취약성을 결합해 피해 가능성이 높은 농가를 우선적으로 확인합니다."
 )
 
+st.warning(
+    "이 시스템은 태풍 이후 농업 피해를 최종 확정하는 모델이 아니라, "
+    "우선탐색이 필요한 농가를 선별하는 의사결정 지원 프로토타입입니다."
+)
+
 st.divider()
 
 with st.sidebar:
     st.header("데이터 입력")
     uploaded = st.file_uploader("CSV 파일 업로드 (farm-level)", type=["csv"])
     st.markdown("또는 샘플 데이터를 사용하려면 빈 상태로 둡니다.")
+
+    with st.expander("샘플 데이터 및 필수 컬럼"):
+        st.markdown(
+            "- 샘플 데이터: `data/sample/example_farms.csv`\n"
+            "- 업로드 시 `farm_id`, `latitude`, `longitude`, `farm_area_ha`, `max_wind_ms`, `cum_precip_72h`, `facility_structure_score`, `distance_to_coast_km`, `is_lowland` 컬럼이 필요합니다."
+        )
+        st.caption(
+            "모델은 검증 가능한 의사결정 지원을 목표로 하며, 실제 피해 확정을 대신하지 않습니다."
+        )
 
     st.header("가중치 (초기값)")
     w_h = st.number_input("Hazard weight", min_value=0.0, max_value=1.0, value=0.5, step=0.05)
