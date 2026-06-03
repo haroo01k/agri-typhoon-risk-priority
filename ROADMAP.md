@@ -1,84 +1,315 @@
 # Roadmap for agri-typhoon-risk-priority
 
-## Current Project Status
+## 1. Current Project Status
 
-- Current state: **executable prototype demo**.
-- The core workflow is implemented: CSV upload, schema validation, feature derivation, risk scoring, ranking, chart visualization, and download.
-- This is a functional prototype designed for demonstration rather than a production system.
-- Completion estimate from current state:
-  - **1–2 days** to polish for a professor-level demo.
-  - **2 weeks minimum**, preferably **4 weeks**, to evolve into a field-response system.
+The current project is an **executable prototype demo**.
 
-## Final Goal
+The core workflow is already implemented:
 
-Build a full **post-typhoon agricultural damage prioritization and response support system** that can:
+- CSV upload
+- Schema validation
+- Feature derivation
+- Risk scoring
+- Inspection priority ranking
+- Chart visualization
+- Result download
+- Basic testing structure
 
-- ingest multi-source typhoon and farm data,
-- assess farm vulnerability and exposure accurately,
-- prioritize field inspection targets,
-- support on-site response workflows,
-- provide operational reports for decision makers.
+This project should not be interpreted as a simple weather dashboard. The dashboard is only the interface for demonstrating the risk scoring and prioritization workflow.
 
-## Short-Term Plan (Day3–Day5)
+Current completion estimate:
 
-### Day3
+- **Prototype/demo readiness:** approximately 55–65%
+- **Professor-facing demo readiness:** 1–2 additional days of polishing
+- **Full field-response system readiness:** at least 2 weeks, preferably 4 weeks or more
 
-- Polish user-facing UX and documentation.
-- Finalize prototype disclaimer and operating notes.
-- Ensure schema validation and error messages are clear.
-- Confirm demo flow works end-to-end with sample CSV.
+The current version is suitable as a research-oriented prototype, but it is not yet a validated operational system.
 
-### Day4
+---
 
-- Strengthen testing coverage for edge cases and larger datasets.
-- Clean up documentation: `README.md`, `DEV_NOTES.md`, `docs/deployment.md`.
-- Add sample usage scenarios for a demo.
+## 2. Final Goal
 
-### Day5
+The final goal is to build a **post-typhoon agricultural damage prioritization and field response support system**.
 
-- Validate the prototype as a demo package.
-- Confirm run instructions for Windows/WSL.
-- Fix any remaining usability issues in `app.py` and documentation.
-- Prepare a short demo script or checklist for presentation.
+The system should help users identify which farms, crops, or regions should be checked first after typhoon-related agricultural damage events.
 
-## Expansion Roadmap (Day6+ / 4 Weeks)
+Long-term system goals include:
 
-### Week 1
+- Ingest typhoon hazard, farm, crop, and regional vulnerability data
+- Assess farm-level vulnerability and exposure
+- Estimate relative agricultural damage risk
+- Prioritize field inspection targets
+- Support post-disaster response workflows
+- Provide decision-support outputs for researchers, field managers, and agricultural disaster response teams
 
-- Add multi-source data ingestion support.
-- Improve model scoring logic with better hazard/exposure/vulnerability formulas.
-- Add more robust input validation and data quality checks.
+The project should remain centered on **agricultural disaster management**, **crop-climate risk assessment**, and **field inspection prioritization**.
 
-### Week 2
+---
 
-- Add a basic reporting layer or export summary report.
-- Add user workflow support for inspection task assignment.
-- Improve map-based filtering and prioritization visuals.
+## 3. Research Alignment
 
-### Week 3
+This project is aligned with the following research directions:
 
-- Integrate more operational data (damage reports, weather feeds, insurance metadata).
-- Add role-based access or simple user session handling.
-- Start a deployment-ready configuration for a VM or container.
+- Rural Climate Systems Engineering
+- Agricultural Disaster Management Engineering
+- Agricultural Systems Modeling and Sustainability Assessments
+- Climate Change and Agrometeorological Disasters
+- Agricultural Complex Systems Engineering
+- Crop system analysis and modeling
+- Crop-climate risk assessment
+- Post-disaster agricultural field response
 
-### Week 4
+The project can be positioned as a prototype that connects:
 
-- Harden the system for field use: resilience, logging, environment configuration.
-- Add deployment documentation, optional Docker support, and real-world test scenarios.
-- Validate the project with a pilot dataset or simulated field inspection case.
+```text
+Typhoon Hazard
+→ Crop and Farm Vulnerability
+→ Exposure Factors
+→ Risk Score
+→ Field Inspection Priority
+→ Post-Disaster Response Support
+```
 
-## Features Not Doing Now
+This direction is more important than the dashboard itself.
 
-- Full damage labeling or insurance claim workflows.
-- Real-time streaming weather data ingestion.
-- Multi-user authentication and access control.
-- Full GIS / satellite imagery processing.
-- Production-grade logging, monitoring, or alerting.
+The dashboard is only a demonstration layer. The core research contribution should be the design of the risk-scoring logic, the variable structure, and the decision-support workflow.
 
-## Long-Term Additions
+---
 
-- Validated damage risk model using historical typhoon data.
-- Workflow management for field inspections, task assignment, and status tracking.
-- Automated report generation for regional disaster response.
-- Cloud deployment or containerized field operations stack.
-- Integration with external disaster management platforms.
+## 4. Short-Term Plan: Day3–Day5
+
+## Day3: Documentation and Direction Lock
+
+Main goal: clarify the project identity.
+
+Tasks:
+
+- Update `README.md`
+- Confirm `ROADMAP.md`
+- Confirm or create `DEV_NOTES.md`
+- Clarify that this is not a simple weather dashboard
+- Define the project as a post-typhoon agricultural damage prioritization system
+- Add current limitations and future development direction
+- Confirm data policy for sample/synthetic data only
+- Check that the app still runs after documentation updates
+
+Expected output:
+
+- Clear README
+- Research-oriented roadmap
+- Development notes for future continuation
+- Stable demo direction
+
+---
+
+## Day4: Variable Design and Validation Refinement
+
+Main goal: make the risk logic more explainable.
+
+Tasks:
+
+- Review required input columns
+- Review optional input columns
+- Clarify each variable used in risk scoring
+- Separate variables into:
+  - Typhoon hazard factors
+  - Crop vulnerability factors
+  - Farm/facility vulnerability factors
+  - Exposure factors
+  - Response priority factors
+- Improve schema validation messages
+- Check sample CSV consistency
+- Add variable explanation table if needed
+
+Expected output:
+
+- More explainable scoring logic
+- Cleaner input data requirements
+- Better preparation for professor-facing discussion
+
+---
+
+## Day5: Professor-Facing Demo Preparation
+
+Main goal: prepare a clean explanation flow.
+
+Tasks:
+
+- Confirm end-to-end demo flow using sample CSV
+- Prepare a short demo scenario
+- Explain what the current model does and does not do
+- Prepare a list of current limitations
+- Prepare future research questions
+- Run tests
+- Confirm local Streamlit execution
+- Prepare commit before sharing or presenting
+
+Expected output:
+
+- Professor-facing demo checklist
+- Stable local execution
+- Clean explanation of the system as a research prototype
+
+---
+
+## 5. Expansion Roadmap: Day6+ / Four-Week Plan
+
+## Week 1: Risk Variable Design and Model Logic
+
+Focus: improve the scientific structure of the risk score.
+
+Tasks:
+
+- Define core typhoon hazard variables:
+  - rainfall intensity
+  - accumulated rainfall
+  - wind speed
+  - typhoon exposure level
+- Define crop vulnerability variables:
+  - crop type
+  - growth stage
+  - sensitivity to wind/rainfall/waterlogging
+- Define farm and field vulnerability variables:
+  - lowland condition
+  - drainage weakness
+  - facility type
+  - past damage history
+- Review whether current weights are reasonable
+- Document the risk score formula
+- Separate prototype assumptions from validated knowledge
+
+Expected output:
+
+- Variable design table
+- Risk score explanation
+- Better model transparency
+
+---
+
+## Week 2: Crop-Climate Risk Extension
+
+Focus: connect the prototype to crop-climate risk assessment.
+
+Tasks:
+
+- Add crop-specific vulnerability categories
+- Add growth-stage-sensitive risk logic
+- Consider typhoon-related agricultural damage mechanisms:
+  - lodging
+  - flooding
+  - waterlogging
+  - facility damage
+  - fruit drop or physical damage
+- Improve interpretation of risk score outputs
+- Add example scenarios for different crops or farm types
+
+Expected output:
+
+- More crop-aware risk scoring logic
+- Better connection to crop system analysis and agricultural disaster management
+
+---
+
+## Week 3: Field Response and Inspection Priority Workflow
+
+Focus: move from risk score to response support.
+
+Tasks:
+
+- Improve inspection priority categories
+- Add response labels such as:
+  - urgent inspection
+  - monitor
+  - low priority
+  - data insufficient
+- Add simple field response status structure
+- Improve map/table filtering for priority review
+- Add export format for field inspection planning
+- Prepare a simulated post-typhoon response scenario
+
+Expected output:
+
+- Stronger field response logic
+- More realistic post-disaster inspection workflow
+
+---
+
+## Week 4: Validation, Reporting, and Research Packaging
+
+Focus: make the prototype discussable as a research project.
+
+Tasks:
+
+- Add validation scenario using sample or simulated damage cases
+- Compare high-risk predictions with assumed damage outcomes
+- Add simple performance or plausibility checks
+- Prepare report generation or summary export
+- Organize documentation for lab discussion
+- Prepare future research questions
+- Prepare possible thesis/project framing
+
+Expected output:
+
+- Research-style prototype package
+- Clear explanation of current assumptions and limitations
+- Better readiness for professor/lab discussion
+
+---
+
+## 6. Features Not Prioritized Now
+
+The following features are intentionally not prioritized at the current stage:
+
+- Real-time weather API integration
+- Full insurance claim workflow
+- Multi-user authentication
+- Role-based access control
+- Full GIS or satellite image processing
+- Production-grade cloud deployment
+- Mobile app development
+- Complex machine learning model training
+- Automated official disaster reporting
+
+These features may be considered later, but the current priority is to stabilize the **risk logic**, **variable design**, **prototype workflow**, and **research direction**.
+
+---
+
+## 7. Long-Term Additions
+
+Potential long-term extensions include:
+
+- Historical typhoon and agricultural damage dataset integration
+- Weather API linkage
+- Crop growth-stage-sensitive risk scoring
+- Farm-level vulnerability database
+- Field inspection workflow management
+- Damage report and photo upload
+- Automated post-typhoon response report generation
+- Model validation using real or historical damage records
+- Linkage with agricultural disaster management platforms
+- Decision-support tools for local governments, agricultural agencies, or insurance-related field assessment
+
+---
+
+## 8. Development Principle
+
+Future development should follow this order:
+
+```text
+Research direction
+→ Variable design
+→ Risk scoring logic
+→ Schema validation
+→ Prototype interface
+→ Demo scenario
+→ Testing
+→ Deployment
+```
+
+Avoid large feature additions before the model logic and research framing are clear.
+
+The core question should always remain:
+
+```text
+After a typhoon, which farms, crops, or regions should be checked first, and why?
+```
